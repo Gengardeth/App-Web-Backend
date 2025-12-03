@@ -32,12 +32,9 @@ PRUEBA_3_GONZALOLUIS/
 ### Commit Inicial
 - ✅ Inicializado repositorio Git
 - ✅ Agregado `.gitignore` con configuración para Django
-- ✅ Subido proyecto a GitHub en rama `master`
 
 ### Cambios Posteriores
-- ✅ Rama `master` renombrada a `main`
 - ✅ Rama `main` subida a GitHub
-- ✅ Rama `master` eliminada del remoto
 - ✅ Creado README.md con documentación del proyecto
 
 ## Requisitos
@@ -53,6 +50,3 @@ Para ejecutar el servidor de desarrollo:
 python manage.py runserver
 ```
 
-## Notas
-
-Este es un proyecto Django básico con una aplicación llamada `appTienda`. El proyecto está versionado en GitHub bajo el repositorio [App-Web-Backend](https://github.com/Gengardeth/App-Web-Backend).
