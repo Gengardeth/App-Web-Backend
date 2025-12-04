@@ -1,5 +1,7 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 import uuid
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=80)
@@ -21,6 +23,7 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 class Insumo(models.Model):
     nombre = models.CharField(max_length=100)
@@ -72,9 +75,20 @@ class Pedido(models.Model):
     foto_ref1 = models.ImageField(upload_to='pedidos', blank=True, null=True)
     foto_ref2 = models.ImageField(upload_to='pedidos', blank=True, null=True)
 
+    # --------- Validaciones lucho ---------
+
+    def clean(self):
+        if self.estado_pedido == 'finalizada' and self.estado_pago != 'pagado':
+            raise ValidationError(
+                "No puedes marcar el pedido como 'Listo' si el pago no está Realizado."
+            )
+
     def save(self, *args, **kwargs):
+        self.full_clean()
+
         if not self.token_seguimiento:
             self.token_seguimiento = uuid.uuid4().hex[:10]
+
         super().save(*args, **kwargs)
 
     def __str__(self):
