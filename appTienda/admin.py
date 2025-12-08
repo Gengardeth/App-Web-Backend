@@ -19,3 +19,31 @@ class ProductoAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
+#commit 2:
+@admin.register(Insumo)
+class InsumoAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "tipo", "cantDisponible", "unidad", "marca", "color")
+    list_filter = ("tipo", "marca", "color")
+    search_fields = ("nombre", "marca")
+    ordering = ("tipo", "nombre")
+    list_per_page = 20
+
+
+@admin.register(Pedido)
+class PedidoAdmin(admin.ModelAdmin):
+    list_display = (
+        "nombre_cliente",
+        "contacto",
+        "plataforma",
+        "estado_pedido",
+        "estado_pago",
+        "fecha_solicitada",
+        "producto_referencia",
+        "token_seguimiento",
+    )
+    list_filter = ("plataforma", "estado_pedido", "estado_pago", "fecha_solicitada")
+    search_fields = ("nombre_cliente", "contacto", "token_seguimiento", "producto_referencia__nombre")
+    date_hierarchy = "fecha_solicitada"
+    readonly_fields = ("token_seguimiento",)
+    ordering = ("-fecha_solicitada",)
+    list_per_page = 20
