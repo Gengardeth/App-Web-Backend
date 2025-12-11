@@ -111,7 +111,8 @@ Panel de administración: `http://localhost:8000/admin`
 
 ## 👨‍💻 Autor
 
-Gonzalo Luis
+Gonzalo Rodriguez
+Luis Carvajal
 
 ## 📄 Licencia
 
