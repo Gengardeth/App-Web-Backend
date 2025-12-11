@@ -1,0 +1,26 @@
+{% extends "appTienda/base.html" %}
+
+{% block title %}Catálogo{% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Productos</h2>
+<div class="row">
+  {% for p in productos %}
+  <div class="col-md-3 mb-3">
+    <a href="{% url 'detalle_producto' p.id %}" class="text-decoration-none">
+      <div class="card h-100">
+        {% if p.imagen1 %}
+        <img src="{{ p.imagen1.url }}" class="card-img-top">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ p.nombre }}</h5>
+          <p class="mb-0">${{ p.precio_base }}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <p>No hay productos cargados.</p>
+  {% endfor %}
+</div>
+{% endblock %}

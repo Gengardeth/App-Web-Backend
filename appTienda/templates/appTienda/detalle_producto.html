@@ -1,0 +1,24 @@
+{% extends "appTienda/base.html" %}
+
+{% block title %}{{ producto.nombre }}{% endblock %}
+
+{% block content %}
+<h2 class="mb-2">{{ producto.nombre }}</h2>
+<p>{{ producto.descripcion }}</p>
+<p class="fw-bold">${{ producto.precio_base }}</p>
+
+<div class="mb-3">
+  {% if producto.imagen1 %}
+  <img src="{{ producto.imagen1.url }}" class="img-fluid mb-2 d-block">
+  {% endif %}
+  {% if producto.imagen2 %}
+  <img src="{{ producto.imagen2.url }}" class="img-fluid mb-2 d-block">
+  {% endif %}
+  {% if producto.imagen3 %}
+  <img src="{{ producto.imagen3.url }}" class="img-fluid mb-2 d-block">
+  {% endif %}
+</div>
+
+<a href="{% url 'pedir_producto' producto.id %}" class="btn btn-primary">Hacer pedido</a>
+<a href="{% url 'catalogo' %}" class="btn btn-link">Volver</a>
+{% endblock %}
