@@ -12,6 +12,7 @@ Sistema de gestión de tienda que permite:
 - 💾 Interfaz de administración completa
 - 🛍️ Catálogo público de productos con búsqueda y filtros (Commit 4)
 - 🔗 Mostrar token y URL de seguimiento al cliente + mejoras de validación/token (Commit 5)
+- 📂 Modelo de Categorías y Productos mejorado + vistas del catálogo (Commit 6)
 
 ## 📁 Estructura del Proyecto
 
@@ -28,28 +29,30 @@ Sistema de gestión de tienda que permite:
 │ ├── migrations/ # Migraciones de base de datos
 │ ├── static/
 │ │ └── css/
-│ │ └── styles.css # Estilos del catálogo (Commit 4)
+│ │ └── styles.css # Estilos del catálogo y productos
 │ ├── templates/
 │ │ └── appTienda/
-│ │ └── base.html # Template base
-│ │ └── catalogo.html # Catálogo con filtros/búsqueda (Commit 4)
-│ │ └── detalle_producto.html
-│ │ └── pedido_form.html
-│ │ └── seguimiento_pedido.html # Muestra token + URL (Commit 5)
+│ │ ├── base.html # Template base
+│ │ ├── catalogo.html # Catálogo con búsqueda y filtros
+│ │ ├── detalle_producto.html # Página detalle de producto
+│ │ ├── pedido_form.html # Formulario para crear pedidos
+│ │ └── seguimiento_pedido.html # Seguimiento con token y URL
 │ ├── init.py
 │ ├── admin.py # Configuración de administrador
 │ ├── apps.py
 │ ├── forms.py # Formulario Pedido con widgets (Bootstrap)
-│ ├── models.py # Modelos de datos + validaciones
+│ ├── models.py # Modelos: Categoría, Producto, Insumo, Pedido, etc.
 │ ├── urls.py # Rutas de la app
 │ ├── tests.py
-│ └── views.py # Vistas de la aplicación (catálogo/seguimiento)
+│ └── views.py # Vistas: catálogo, detalle, crear pedido, seguimiento
 └── .gitignore
 ```
 
 ## ✨ Características Implementadas
 
 ### Modelos de Datos
+- **Categorías**: Categorización de productos con nombre y detalle
+- **Productos**: Información detallada con múltiples imágenes, precio y estado de destacado
 - **Clientes**: Datos personales, contacto y plataforma de comunicación
 - **Insumos/Productos**: Tipo, marca, color e información de disponibilidad
 - **Pedidos**: Estado del pedido, estado del pago, fecha solicitada y referencias
@@ -65,10 +68,16 @@ Sistema de gestión de tienda que permite:
 
 ### Templates
 - ✅ Template base HTML para la aplicación
-- ✅ Catálogo con filtros/búsqueda
-- ✅ Detalle de producto
-- ✅ Formulario de pedido
-- ✅ Página de seguimiento (con token y URL)
+- ✅ Catálogo con filtros/búsqueda y paginación
+- ✅ Detalle de producto con múltiples imágenes
+- ✅ Formulario de pedido con validación
+- ✅ Página de seguimiento (con token y URL de seguimiento)
+
+### Vistas y Funcionalidades (Commit 6)
+- **catalogo()**: Listado de productos con búsqueda por nombre/descripción, filtrado por categoría y estado destacado
+- **detalle_producto()**: Visualización detallada de un producto con imágenes
+- **pedir_producto()**: Formulario para realizar pedidos de productos específicos
+- **seguimiento_pedido()**: Rastrear pedido por token único con URL compartible
 
 ## 🛠️ Requisitos
 
