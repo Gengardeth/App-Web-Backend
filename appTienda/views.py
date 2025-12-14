@@ -2,19 +2,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto, Pedido, Categoria
 from .forms import PedidoForm
 from django.urls import reverse
-
+from django.db.models import Q
 
 def catalogo(request):
-    # Parámetros GET (vienen desde la URL ?q=...&cat=...&dest=1)
     q = request.GET.get('q', '').strip()
     cat = request.GET.get('cat', '').strip()
-    dest = request.GET.get('dest', '').strip()  # "1" => solo destacados
+    dest = request.GET.get('dest', '').strip()
 
     productos = Producto.objects.all()
     categorias = Categoria.objects.all()
 
     if q:
-        productos = productos.filter(nombre__icontains=q)
+        productos = productos.filter(Q(nombre__icontains=q) | Q(descripcion__icontains=q))
 
     if cat:
         productos = productos.filter(categoria_id=cat)
@@ -61,4 +60,5 @@ def seguimiento_pedido(request, token):
         'pedido': pedido,
         'token': token,
         'url_seguimiento': url_seguimiento,
+        'no_encontrado': False if pedido else True
     })

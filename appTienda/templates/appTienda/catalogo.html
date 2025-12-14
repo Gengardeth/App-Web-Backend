@@ -1,110 +1,51 @@
 {% extends "appTienda/base.html" %}
-{% load static %}
-
 {% block title %}Catálogo{% endblock %}
-
 {% block content %}
-<div class="container py-3">
 
-  <h1 class="mb-3">Catálogo</h1>
+<h3 class="mb-3">Catálogo</h3>
 
-  <!-- === FORM FILTROS (GET) === -->
-  <form method="GET" class="row g-2 mb-4">
-
-    <!-- Buscar por nombre -->
-    <div class="col-md-5">
-      <input
-        class="form-control"
-        type="text"
-        name="q"
-        placeholder="Buscar por nombre..."
-        value="{{ q }}"
-      >
-    </div>
-
-    <!-- Filtro por categoría -->
-    <div class="col-md-4">
-      <select class="form-select" name="cat">
-        <option value="">Todas las categorías</option>
-        {% for c in categorias %}
-          <option value="{{ c.id }}"
-            {% if cat|stringformat:"s" == c.id|stringformat:"s" %}selected{% endif %}>
-            {{ c.nombre }}
-          </option>
-        {% endfor %}
-      </select>
-    </div>
-
-    <!-- Botones -->
-    <div class="col-md-3 d-flex gap-2">
-      <button class="btn btn-dark w-100" type="submit">Filtrar</button>
-      <a class="btn btn-outline-secondary w-100" href="{% url 'catalogo' %}">Limpiar</a>
-    </div>
-
-    <!-- Checkbox solo destacados -->
-    <div class="col-12">
-      <div class="form-check mt-2">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="1"
-          id="dest"
-          name="dest"
-          {% if dest == "1" %}checked{% endif %}
-        >
-        <label class="form-check-label" for="dest">Solo destacados</label>
-      </div>
-    </div>
-
-  </form>
-  <!-- === FIN FORM FILTROS === -->
-
-
-  <!-- === LISTADO PRODUCTOS === -->
-  <div class="row g-3">
-
-    {% for p in productos %}
-      <div class="col-sm-6 col-md-4">
-        <div class="card h-100">
-
-          {% if p.imagen1 %}
-            <img src="{{ p.imagen1.url }}" class="card-img-top" alt="{{ p.nombre }}">
-          {% endif %}
-
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title mb-2">{{ p.nombre }}</h5>
-
-            {% if p.categoria %}
-              <p class="text-muted mb-2">Categoría: {{ p.categoria.nombre }}</p>
-            {% endif %}
-
-            <p class="card-text mb-3">
-              {{ p.descripcion|default:""|truncatechars:110 }}
-            </p>
-
-            <div class="mt-auto d-flex gap-2">
-              <a class="btn btn-outline-dark w-100" href="{% url 'detalle_producto' p.id %}">
-                Ver detalle
-              </a>
-              {% if p.es_destacado %}
-                <span class="badge bg-warning text-dark align-self-center">Destacado</span>
-              {% endif %}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    {% empty %}
-      <div class="col-12">
-        <div class="alert alert-secondary">
-          No hay productos para mostrar con esos filtros.
-        </div>
-      </div>
-    {% endfor %}
-
+<form method="get" class="row g-2 mb-3">
+  <div class="col-12 col-md-5">
+    <input class="form-control" name="q" value="{{ q }}" placeholder="Buscar...">
   </div>
-  <!-- === FIN LISTADO === -->
+  <div class="col-12 col-md-4">
+    <select class="form-select" name="cat">
+      <option value="">Todas las categorías</option>
+      {% for c in categorias %}
+        <option value="{{ c.id }}" {% if cat|stringformat:"s" == c.id|stringformat:"s" %}selected{% endif %}>{{ c.nombre }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-6 col-md-1 d-grid">
+    <button class="btn btn-primary">Filtrar</button>
+  </div>
+  <div class="col-6 col-md-2 d-grid">
+    <a class="btn btn-outline-dark" href="?dest=1{% if q %}&q={{ q }}{% endif %}{% if cat %}&cat={{ cat }}{% endif %}">Destacados</a>
+  </div>
+</form>
 
+<div class="row g-3">
+  {% for p in productos %}
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card h-100">
+      {% if p.imagen1 %}
+        <img src="{{ p.imagen1.url }}" class="card-img-top" style="height:220px;object-fit:cover;">
+      {% else %}
+        <div class="bg-light d-flex align-items-center justify-content-center" style="height:220px;">No disponible</div>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title mb-1">{{ p.nombre }}</h5>
+        <div class="text-muted mb-2">{% if p.categoria %}{{ p.categoria.nombre }}{% endif %}</div>
+        <div class="fw-bold mb-3">$ {{ p.precio_base }}</div>
+        <a class="btn btn-outline-dark w-100" href="{% url 'detalle_producto' p.id %}">Ver detalle</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12">
+    <div class="alert alert-warning">No hay productos para mostrar.</div>
+  </div>
+  {% endfor %}
 </div>
+
 {% endblock %}
