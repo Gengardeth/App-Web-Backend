@@ -1,10 +1,34 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Producto, Pedido
+from .models import Producto, Pedido, Categoria
 from .forms import PedidoForm
+from django.urls import reverse
+
 
 def catalogo(request):
+    # Parámetros GET (vienen desde la URL ?q=...&cat=...&dest=1)
+    q = request.GET.get('q', '').strip()
+    cat = request.GET.get('cat', '').strip()
+    dest = request.GET.get('dest', '').strip()  # "1" => solo destacados
+
     productos = Producto.objects.all()
-    return render(request, 'appTienda/catalogo.html', {'productos': productos})
+    categorias = Categoria.objects.all()
+
+    if q:
+        productos = productos.filter(nombre__icontains=q)
+
+    if cat:
+        productos = productos.filter(categoria_id=cat)
+
+    if dest == "1":
+        productos = productos.filter(es_destacado=True)
+
+    return render(request, 'appTienda/catalogo.html', {
+        'productos': productos,
+        'categorias': categorias,
+        'q': q,
+        'cat': cat,
+        'dest': dest,
+    })
 
 def detalle_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
@@ -28,4 +52,13 @@ def pedir_producto(request, producto_id):
 
 def seguimiento_pedido(request, token):
     pedido = Pedido.objects.filter(token_seguimiento=token).first()
-    return render(request, 'appTienda/seguimiento_pedido.html', {'pedido': pedido})
+
+    url_seguimiento = request.build_absolute_uri(
+        reverse('seguimiento_pedido', args=[token])
+    )
+
+    return render(request, 'appTienda/seguimiento_pedido.html', {
+        'pedido': pedido,
+        'token': token,
+        'url_seguimiento': url_seguimiento,
+    })

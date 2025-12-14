@@ -84,11 +84,10 @@ class Pedido(models.Model):
             )
 
     def save(self, *args, **kwargs):
-        self.full_clean()
-
         if not self.token_seguimiento:
             self.token_seguimiento = uuid.uuid4().hex[:10]
 
+        self.full_clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
