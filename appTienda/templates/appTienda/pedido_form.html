@@ -2,40 +2,52 @@
 {% block title %}Solicitud{% endblock %}
 {% block content %}
 
-<h3 class="mb-1">Solicitud</h3>
+<h3 class="mb-1">Solicitud de Pedido</h3>
 <div class="text-muted mb-3">Producto: <b>{{ producto.nombre }}</b> ($ {{ producto.precio_base }})</div>
 
-<form method="post" class="card p-3">
+<form method="post" class="card p-3" enctype="multipart/form-data">
   {% csrf_token %}
 
   <div class="row g-3">
     <div class="col-12 col-md-6">
-      <label class="form-label">Nombre</label>
+      <label class="form-label">Nombre del Cliente</label>
       {{ form.nombre_cliente }}
       {% if form.nombre_cliente.errors %}<div class="text-danger small">{{ form.nombre_cliente.errors }}</div>{% endif %}
     </div>
 
     <div class="col-12 col-md-6">
-      <label class="form-label">Teléfono</label>
-      {{ form.telefono_cliente }}
-      {% if form.telefono_cliente.errors %}<div class="text-danger small">{{ form.telefono_cliente.errors }}</div>{% endif %}
+      <label class="form-label">Contacto (Teléfono o Correo)</label>
+      {{ form.contacto }}
+      {% if form.contacto.errors %}<div class="text-danger small">{{ form.contacto.errors }}</div>{% endif %}
     </div>
 
     <div class="col-12">
-      <label class="form-label">Dirección de entrega</label>
-      {{ form.direccion_entrega }}
-      {% if form.direccion_entrega.errors %}<div class="text-danger small">{{ form.direccion_entrega.errors }}</div>{% endif %}
+      <label class="form-label">Descripción del Pedido</label>
+      {{ form.descripcion }}
+      {% if form.descripcion.errors %}<div class="text-danger small">{{ form.descripcion.errors }}</div>{% endif %}
     </div>
 
-    <div class="col-12 col-md-4">
-      <label class="form-label">Cantidad</label>
-      {{ form.cantidad }}
-      {% if form.cantidad.errors %}<div class="text-danger small">{{ form.cantidad.errors }}</div>{% endif %}
+    <div class="col-12 col-md-6">
+      <label class="form-label">Fecha Solicitada (Opcional)</label>
+      {{ form.fecha_solicitada }}
+      {% if form.fecha_solicitada.errors %}<div class="text-danger small">{{ form.fecha_solicitada.errors }}</div>{% endif %}
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label class="form-label">Imagen de Referencia 1 (Opcional)</label>
+      {{ form.foto_ref1 }}
+      {% if form.foto_ref1.errors %}<div class="text-danger small">{{ form.foto_ref1.errors }}</div>{% endif %}
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label class="form-label">Imagen de Referencia 2 (Opcional)</label>
+      {{ form.foto_ref2 }}
+      {% if form.foto_ref2.errors %}<div class="text-danger small">{{ form.foto_ref2.errors }}</div>{% endif %}
     </div>
   </div>
 
   <div class="mt-3 d-grid gap-2">
-    <button class="btn btn-primary">Enviar solicitud</button>
+    <button class="btn btn-primary">Enviar Solicitud</button>
     <a class="btn btn-outline-secondary" href="{% url 'detalle_producto' producto.id %}">Volver</a>
   </div>
 </form>
