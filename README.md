@@ -10,31 +10,40 @@ Sistema de gestión de tienda que permite:
 - 👥 Administrar datos de clientes
 - 🔍 Rastrear pedidos con token único
 - 💾 Interfaz de administración completa
+- 🛍️ Catálogo público de productos con búsqueda y filtros (Commit 4)
+- 🔗 Mostrar token y URL de seguimiento al cliente + mejoras de validación/token (Commit 5)
 
 ## 📁 Estructura del Proyecto
 
 ```
-PRUEBA_3_GONZALOLUIS/
-├── manage.py                      # Script de gestión de Django
-├── README.md                      # Este archivo
-├── PRUEBA_3_GONZALOLUIS/          # Configuración del proyecto
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── appTienda/                     # Aplicación principal
-│   ├── migrations/                # Migraciones de base de datos
-│   ├── templates/
-│   │   └── appTienda/
-│   │       └── base.html          # Template base
-│   │       └── seguimiento_pedido.html
-│   ├── __init__.py
-│   ├── admin.py                   # Configuración de administrador
-│   ├── apps.py
-│   ├── models.py                  # Modelos de datos
-│   ├── tests.py
-│   └── views.py                   # Vistas de la aplicación
+├── manage.py # Script de gestión de Django
+├── README.md # Este archivo
+├── PRUEBA_3_GONZALOLUIS/ # Configuración del proyecto
+│ ├── init.py
+│ ├── asgi.py
+│ ├── settings.py
+│ ├── urls.py
+│ └── wsgi.py
+├── appTienda/ # Aplicación principal
+│ ├── migrations/ # Migraciones de base de datos
+│ ├── static/
+│ │ └── css/
+│ │ └── styles.css # Estilos del catálogo (Commit 4)
+│ ├── templates/
+│ │ └── appTienda/
+│ │ └── base.html # Template base
+│ │ └── catalogo.html # Catálogo con filtros/búsqueda (Commit 4)
+│ │ └── detalle_producto.html
+│ │ └── pedido_form.html
+│ │ └── seguimiento_pedido.html # Muestra token + URL (Commit 5)
+│ ├── init.py
+│ ├── admin.py # Configuración de administrador
+│ ├── apps.py
+│ ├── forms.py # Formulario Pedido con widgets (Bootstrap)
+│ ├── models.py # Modelos de datos + validaciones
+│ ├── urls.py # Rutas de la app
+│ ├── tests.py
+│ └── views.py # Vistas de la aplicación (catálogo/seguimiento)
 └── .gitignore
 ```
 
@@ -56,7 +65,10 @@ PRUEBA_3_GONZALOLUIS/
 
 ### Templates
 - ✅ Template base HTML para la aplicación
-- ✅ Página de seguimiento de pedidos
+- ✅ Catálogo con filtros/búsqueda
+- ✅ Detalle de producto
+- ✅ Formulario de pedido
+- ✅ Página de seguimiento (con token y URL)
 
 ## 🛠️ Requisitos
 
@@ -100,14 +112,22 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-El servidor estará disponible en `http://localhost:8000`
-Panel de administración: `http://localhost:8000/admin`
+🧭 Rutas Principales
+
+Sitio público:
+
+Catálogo: http://localhost:8000/
+Detalle producto: http://localhost:8000/producto/<id>/
+Crear pedido: http://localhost:8000/pedir/<producto_id>/
+Seguimiento: http://localhost:8000/seguimiento/<token>/`
 
 ## 📝 Notas de Desarrollo
 
-- Las migraciones se encuentran en `appTienda/migrations/`
-- Los templates se organizan en `appTienda/templates/appTienda/`
-- La configuración del proyecto está en `PRUEBA_3_GONZALOLUIS/settings.py`
+- Migraciones: appTienda/migrations/
+- Templates: appTienda/templates/appTienda/
+- Static CSS: appTienda/static/css/styles.css
+- Configuración del proyecto: PRUEBA_3_GONZALOLUIS/settings.py
+- Archivos multimedia (imágenes): MEDIA_URL / MEDIA_ROOT (servidos en modo desarrollo)
 
 ## 👨‍💻 Autor
 
