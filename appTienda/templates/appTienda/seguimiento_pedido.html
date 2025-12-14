@@ -2,6 +2,14 @@
 
 {% block title %}Seguimiento{% endblock %}
 
+<div class="alert alert-secondary">
+  <div><strong>Token:</strong> {{ token }}</div>
+  <div>
+    <strong>URL de seguimiento:</strong>
+    <a href="{{ url_seguimiento }}">{{ url_seguimiento }}</a>
+  </div>
+</div>
+
 {% block content %}
 <h2 class="mb-3">Seguimiento de pedido</h2>
 
