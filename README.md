@@ -1,18 +1,18 @@
 # App-Web-Backend
 
-Aplicación web Django para gestionar una tienda en línea con seguimiento de pedidos, gestión de insumos y administración de clientes.
+Aplicación web Django para gestionar una tienda en línea con seguimiento de pedidos, gestión de insumos, administración de productos y catálogo público.
 
 ## 📋 Descripción
 
 Sistema de gestión de tienda que permite:
-- 📦 Registrar y dar seguimiento a pedidos
-- 🏪 Gestionar insumos y productos
-- 👥 Administrar datos de clientes
-- 🔍 Rastrear pedidos con token único
-- 💾 Interfaz de administración completa
-- 🛍️ Catálogo público de productos con búsqueda y filtros (Commit 4)
-- 🔗 Mostrar token y URL de seguimiento al cliente + mejoras de validación/token (Commit 5)
-- 📂 Modelo de Categorías y Productos mejorado + vistas del catálogo (Commit 6)
+- 📦 Registrar y dar seguimiento a pedidos con token único
+- 🏪 Gestionar insumos y productos con múltiples imágenes
+- 👥 Administrar datos de clientes y contactos
+- 🛍️ Catálogo público de productos con búsqueda avanzada y filtros
+- 🔍 Rastrear pedidos mediante token único y URL compartible
+- 💾 Panel de administración optimizado con filtros y búsqueda
+- ✅ Validación de datos en formularios y modelos
+- 🎨 Interfaz responsiva con Bootstrap 5
 
 ## 📁 Estructura del Proyecto
 
@@ -84,8 +84,6 @@ Sistema de gestión de tienda que permite:
 - Python 3.8+
 - Django 4.0+
 - Pillow (para procesamiento de imágenes)
-- ✅Buscar por nombre de cliente, contacto y token de seguimiento.
-- ✅Ordenar registros y limitar la cantidad de filas por página,
 
 ## ⚙️ Instalación y Uso
 
@@ -121,22 +119,58 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-🧭 Rutas Principales
+## 🧭 Rutas Principales
 
-Sitio público:
+### Sitio Público:
+- **Catálogo**: `http://localhost:8000/`
+- **Detalle de Producto**: `http://localhost:8000/producto/<id>/`
+- **Crear Pedido**: `http://localhost:8000/pedir/<producto_id>/`
+- **Rastrear Pedido**: `http://localhost:8000/seguimiento/<token>/`
 
-Catálogo: http://localhost:8000/
-Detalle producto: http://localhost:8000/producto/<id>/
-Crear pedido: http://localhost:8000/pedir/<producto_id>/
-Seguimiento: http://localhost:8000/seguimiento/<token>/`
+### Panel de Administración:
+- **Admin Panel**: `http://localhost:8000/admin/`
 
 ## 📝 Notas de Desarrollo
 
-- Migraciones: appTienda/migrations/
-- Templates: appTienda/templates/appTienda/
-- Static CSS: appTienda/static/css/styles.css
-- Configuración del proyecto: PRUEBA_3_GONZALOLUIS/settings.py
-- Archivos multimedia (imágenes): MEDIA_URL / MEDIA_ROOT (servidos en modo desarrollo)
+- **Migraciones**: `appTienda/migrations/`
+- **Templates**: `appTienda/templates/appTienda/`
+- **Estilos CSS**: `appTienda/static/css/styles.css`
+- **Configuración del proyecto**: `PRUEBA_3_GONZALOLUIS/settings.py`
+- **Archivos multimedia**: Servidos en modo desarrollo (imágenes de productos y pedidos)
+- **Base de datos**: SQLite (db.sqlite3) - cambiar para producción
+
+## 🔄 Flujo de la Aplicación
+
+1. **Usuario visita catálogo**: Accede a la lista de productos con opción de buscar y filtrar
+2. **Selecciona producto**: Ve detalles completos con imágenes
+3. **Realiza pedido**: Completa formulario con datos personales y referencias
+4. **Obtiene token**: Recibe token único para rastrear el pedido
+5. **Rastrea pedido**: Puede ver el estado en cualquier momento usando el token
+6. **Administrador gestiona**: Panel con filtros avanzados para gestionar pedidos
+
+## 📊 Validaciones Implementadas
+
+### Formulario de Pedido (PedidoForm)
+- ✅ Validación de contacto (teléfono o email)
+- ✅ Descripción mínima de 10 caracteres
+- ✅ Campos de foto opcionales
+- ✅ Fecha de pedido configurable
+- ✅ Widgets Bootstrap para mejor UX
+
+### Modelo Pedido
+- ✅ Token de seguimiento único y automático
+- ✅ Validación: Pedido no puede ser "Finalizado" si pago no está "Pagado"
+- ✅ Estados de pedido controlados por choices
+- ✅ Estados de pago validados
+
+## 👨‍💻 Autores
+
+- Gonzalo Rodriguez
+- Luis Carvajal
+
+## 📄 Licencia
+
+Este proyecto está bajo licencia MIT
 
 ## 👨‍💻 Autor
 

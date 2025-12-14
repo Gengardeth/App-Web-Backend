@@ -2,14 +2,12 @@ from django.db import models
 from django.core.exceptions import ValidationError
 import uuid
 
-
 class Categoria(models.Model):
     nombre = models.CharField(max_length=80)
     detalle = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nombre
-
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=120)
@@ -24,7 +22,6 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class Insumo(models.Model):
     nombre = models.CharField(max_length=100)
     tipo = models.CharField(max_length=60)
@@ -35,7 +32,6 @@ class Insumo(models.Model):
 
     def __str__(self):
         return self.nombre
-
 
 class Pedido(models.Model):
     PLATAFORMAS = (
@@ -75,18 +71,16 @@ class Pedido(models.Model):
     foto_ref1 = models.ImageField(upload_to='pedidos', blank=True, null=True)
     foto_ref2 = models.ImageField(upload_to='pedidos', blank=True, null=True)
 
-    # --------- Validaciones lucho ---------
-
     def clean(self):
         if self.estado_pedido == 'finalizada' and self.estado_pago != 'pagado':
-            raise ValidationError(
-                "No puedes marcar el pedido como 'Listo' si el pago no está Realizado."
-            )
+            raise ValidationError("No puedes marcar el pedido como Finalizada si el pago no está Pagado.")
 
     def save(self, *args, **kwargs):
         if not self.token_seguimiento:
-            self.token_seguimiento = uuid.uuid4().hex[:10]
-
+            t = uuid.uuid4().hex[:10]
+            while Pedido.objects.filter(token_seguimiento=t).exists():
+                t = uuid.uuid4().hex[:10]
+            self.token_seguimiento = t
         self.full_clean()
         super().save(*args, **kwargs)
 
