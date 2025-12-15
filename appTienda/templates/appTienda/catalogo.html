@@ -1,0 +1,96 @@
+{% extends "appTienda/base.html" %}
+{% block title %}Catálogo{% endblock %}
+{% block content %}
+
+<h3 class="mb-3">Catálogo</h3>
+
+<!-- Seguimiento de pedido -->
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title mb-1">Seguimiento de pedido</h5>
+    <p class="text-muted mb-3">
+      Si ya hiciste un pedido, ingresa tu <strong>token</strong> para ver el estado.
+    </p>
+
+    <form class="row g-2" action="{% url 'buscar_token' %}" method="get">
+      <div class="col-12 col-md-8">
+        <input class="form-control" name="token" placeholder="Ej: 9f3a1c2d0b" required>
+      </div>
+      <div class="col-12 col-md-4 d-grid">
+        <button class="btn btn-dark" type="submit">Buscar mi pedido</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Filtros -->
+<form method="get" class="row g-2 mb-3">
+  <div class="col-12 col-md-5">
+    <input class="form-control" name="q" value="{{ q }}" placeholder="Buscar...">
+  </div>
+
+  <div class="col-12 col-md-4">
+    <select class="form-select" name="cat">
+      <option value="">Todas las categorías</option>
+      {% for c in categorias %}
+        <option value="{{ c.id }}" {% if cat|stringformat:"s" == c.id|stringformat:"s" %}selected{% endif %}>
+          {{ c.nombre }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-6 col-md-1 d-grid">
+    <button class="btn btn-primary">Filtrar</button>
+  </div>
+
+  <div class="col-6 col-md-2 d-grid">
+    <a class="btn btn-outline-dark" href="?dest=1{% if q %}&q={{ q }}{% endif %}{% if cat %}&cat={{ cat }}{% endif %}">
+      Destacados
+    </a>
+  </div>
+</form>
+
+<!-- Productos -->
+<div class="row g-3">
+  {% for p in productos %}
+    <div class="col-12 col-sm-6 col-lg-4">
+      <!-- position-relative permite ubicar el badge arriba -->
+      <div class="card h-100 position-relative">
+
+        <!-- BADGE DESTACADO (visible en público) -->
+        {% if p.es_destacado %}
+          <span class="badge bg-warning text-dark position-absolute"
+                style="top: 10px; left: 10px; z-index: 2;">
+            Destacado
+          </span>
+        {% endif %}
+
+        {% if p.imagen1 %}
+          <img src="{{ p.imagen1.url }}" class="card-img-top" style="height:220px;object-fit:cover;">
+        {% else %}
+          <div class="bg-light d-flex align-items-center justify-content-center" style="height:220px;">
+            No disponible
+          </div>
+        {% endif %}
+
+        <div class="card-body">
+          <h5 class="card-title mb-1">{{ p.nombre }}</h5>
+          <div class="text-muted mb-2">{% if p.categoria %}{{ p.categoria.nombre }}{% endif %}</div>
+          <div class="fw-bold mb-3">$ {{ p.precio_base }}</div>
+
+          <a class="btn btn-outline-dark w-100" href="{% url 'detalle_producto' p.id %}">
+            Ver detalle
+          </a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="col-12">
+      <div class="alert alert-warning">No hay productos para mostrar.</div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
