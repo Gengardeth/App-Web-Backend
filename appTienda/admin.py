@@ -32,9 +32,6 @@ class InsumoAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
-# ==========================
-# FUNCIONALIDAD EXTRA (ADMIN)
-# ==========================
 
 class AtrasadosFilter(admin.SimpleListFilter):
     title = "Atrasados"
@@ -73,7 +70,7 @@ class AtrasadosFilter(admin.SimpleListFilter):
 
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
-    # Mostramos badges en vez de texto plano
+    # badges en vez de texto plano
     list_display = (
         "nombre_cliente",
         "contacto",
@@ -85,7 +82,7 @@ class PedidoAdmin(admin.ModelAdmin):
         "token_seguimiento",
     )
 
-    # Mantienes filtros base + el custom "Atrasados"
+    
     list_filter = ("plataforma", "estado_pedido", "estado_pago", "fecha_solicitada", AtrasadosFilter)
     search_fields = ("nombre_cliente", "contacto", "token_seguimiento", "producto_referencia__nombre")
     date_hierarchy = "fecha_solicitada"
@@ -93,10 +90,10 @@ class PedidoAdmin(admin.ModelAdmin):
     ordering = ("-fecha_solicitada",)
     list_per_page = 20
 
-    # Acciones masivas
+    
     actions = ("marcar_pagado", "pasar_a_proceso", "marcar_finalizada_si_pagado")
 
-    # ---- BADGES (ETIQUETAS DE COLOR) ----
+    # (ETIQUETAS DE COLOR)
     def estado_badge(self, obj):
         colores = {
             "solicitado": "#6c757d",
@@ -129,7 +126,7 @@ class PedidoAdmin(admin.ModelAdmin):
         )
     pago_badge.short_description = "Pago"
 
-    # ---- ACCIONES MASIVAS ----
+    
     @admin.action(description="Marcar como PAGADO")
     def marcar_pagado(self, request, queryset):
         updated = queryset.update(estado_pago="pagado")

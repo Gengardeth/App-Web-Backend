@@ -74,7 +74,7 @@ class Pedido(models.Model):
     def clean(self):
         if self.estado_pedido == 'finalizada' and self.estado_pago != 'pagado':
             raise ValidationError("No puedes marcar el pedido como Finalizada si el pago no está Pagado.")
-
+# hola lucho le puse el *args, **kwargs ya que sin ellos me falla el guardado en el admin 
     def save(self, *args, **kwargs):
         if not self.token_seguimiento:
             t = uuid.uuid4().hex[:10]
