@@ -4,6 +4,7 @@
 
 <h3 class="mb-3">Catálogo</h3>
 
+<!-- Seguimiento de pedido -->
 <div class="card mb-4">
   <div class="card-body">
     <h5 class="card-title mb-1">Seguimiento de pedido</h5>
@@ -22,6 +23,7 @@
   </div>
 </div>
 
+<!-- Filtros -->
 <form method="get" class="row g-2 mb-3">
   <div class="col-12 col-md-5">
     <input class="form-control" name="q" value="{{ q }}" placeholder="Buscar...">
@@ -49,10 +51,21 @@
   </div>
 </form>
 
+<!-- Productos -->
 <div class="row g-3">
   {% for p in productos %}
     <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
+      <!-- position-relative permite ubicar el badge arriba -->
+      <div class="card h-100 position-relative">
+
+        <!-- BADGE DESTACADO (visible en público) -->
+        {% if p.es_destacado %}
+          <span class="badge bg-warning text-dark position-absolute"
+                style="top: 10px; left: 10px; z-index: 2;">
+            Destacado
+          </span>
+        {% endif %}
+
         {% if p.imagen1 %}
           <img src="{{ p.imagen1.url }}" class="card-img-top" style="height:220px;object-fit:cover;">
         {% else %}
@@ -65,6 +78,7 @@
           <h5 class="card-title mb-1">{{ p.nombre }}</h5>
           <div class="text-muted mb-2">{% if p.categoria %}{{ p.categoria.nombre }}{% endif %}</div>
           <div class="fw-bold mb-3">$ {{ p.precio_base }}</div>
+
           <a class="btn btn-outline-dark w-100" href="{% url 'detalle_producto' p.id %}">
             Ver detalle
           </a>
@@ -79,3 +93,4 @@
 </div>
 
 {% endblock %}
+

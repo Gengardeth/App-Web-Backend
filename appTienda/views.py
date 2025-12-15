@@ -4,6 +4,7 @@ from .forms import PedidoForm
 from django.urls import reverse
 from django.db.models import Q
 from django.contrib import messages
+from django.utils import timezone
 
 
 def catalogo(request):
@@ -74,9 +75,17 @@ def seguimiento_pedido(request, token):
         reverse('seguimiento_pedido', args=[token])
     )
 
+    hoy = timezone.localdate()
+    atrasado = False
+    if pedido and pedido.fecha_solicitada:
+        if pedido.fecha_solicitada < hoy and pedido.estado_pedido not in ("finalizada", "cancelada"):
+            atrasado = True
+
     return render(request, 'appTienda/seguimiento_pedido.html', {
         'pedido': pedido,
         'token': token,
         'url_seguimiento': url_seguimiento,
-        'no_encontrado': False if pedido else True
+        'no_encontrado': False if pedido else True,
+        'hoy': hoy,
+        'atrasado': atrasado,
     })

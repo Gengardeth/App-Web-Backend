@@ -8,11 +8,27 @@
   <div class="alert alert-success mb-3">
     <strong>Token de Seguimiento:</strong> <code>{{ token }}</code><br>
     <strong>URL Compartible:</strong> <code>{{ url_seguimiento }}</code>
+
+    {% if user.is_authenticated and user.is_staff %}
+      <div class="mt-2">
+        <a class="btn btn-sm btn-outline-dark" href="{% url 'admin:index' %}">Ir al Admin</a>
+        <a class="btn btn-sm btn-outline-primary" href="{% url 'admin:appTienda_pedido_change' pedido.id %}">
+          Editar este pedido
+        </a>
+      </div>
+    {% endif %}
   </div>
+
+  {% if atrasado %}
+    <div class="alert alert-warning">
+      <strong>⚠️ Pedido atrasado</strong><br>
+      La fecha solicitada fue <b>{{ pedido.fecha_solicitada }}</b> y hoy es <b>{{ hoy }}</b>.
+    </div>
+  {% endif %}
 
   <div class="card p-4">
     <h5 class="mb-3">Información del Pedido</h5>
-    
+
     <div class="row">
       <div class="col-md-6">
         <div class="mb-3">
@@ -32,12 +48,40 @@
       <div class="col-md-6">
         <div class="mb-3">
           <strong>Estado del Pedido:</strong><br>
-          <span class="badge bg-primary">{{ pedido.get_estado_pedido_display }}</span>
+
+          {% if pedido.estado_pedido == "solicitado" %}
+            <span class="badge bg-secondary">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "aprobado" %}
+            <span class="badge bg-primary">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "proceso" %}
+            <span class="badge bg-warning text-dark">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "realizada" %}
+            <span class="badge bg-info text-dark">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "entregada" %}
+            <span class="badge bg-success">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "finalizada" %}
+            <span class="badge bg-dark">{{ pedido.get_estado_pedido_display }}</span>
+          {% elif pedido.estado_pedido == "cancelada" %}
+            <span class="badge bg-danger">{{ pedido.get_estado_pedido_display }}</span>
+          {% else %}
+            <span class="badge bg-secondary">{{ pedido.get_estado_pedido_display }}</span>
+          {% endif %}
         </div>
+
         <div class="mb-3">
           <strong>Estado del Pago:</strong><br>
-          <span class="badge bg-warning">{{ pedido.get_estado_pago_display }}</span>
+
+          {% if pedido.estado_pago == "pendiente" %}
+            <span class="badge bg-danger">{{ pedido.get_estado_pago_display }}</span>
+          {% elif pedido.estado_pago == "parcial" %}
+            <span class="badge bg-warning text-dark">{{ pedido.get_estado_pago_display }}</span>
+          {% elif pedido.estado_pago == "pagado" %}
+            <span class="badge bg-success">{{ pedido.get_estado_pago_display }}</span>
+          {% else %}
+            <span class="badge bg-secondary">{{ pedido.get_estado_pago_display }}</span>
+          {% endif %}
         </div>
+
         <div class="mb-3">
           <strong>Fecha Solicitada:</strong><br>
           {% if pedido.fecha_solicitada %}{{ pedido.fecha_solicitada }}{% else %}No especificada{% endif %}
@@ -53,28 +97,28 @@
     </div>
 
     {% if pedido.producto_referencia %}
-    <div class="alert alert-info">
-      <strong>Producto de Referencia:</strong> {{ pedido.producto_referencia.nombre }}<br>
-      <strong>Precio Base:</strong> ${{ pedido.producto_referencia.precio_base }}
-    </div>
+      <div class="alert alert-info">
+        <strong>Producto de Referencia:</strong> {{ pedido.producto_referencia.nombre }}<br>
+        <strong>Precio Base:</strong> ${{ pedido.producto_referencia.precio_base }}
+      </div>
     {% endif %}
 
     {% if pedido.foto_ref1 or pedido.foto_ref2 %}
-    <div class="mb-3">
-      <strong>Imágenes de Referencia:</strong>
-      <div class="row g-2 mt-2">
-        {% if pedido.foto_ref1 %}
-        <div class="col-md-6">
-          <img src="{{ pedido.foto_ref1.url }}" class="img-fluid rounded" alt="Referencia 1">
+      <div class="mb-3">
+        <strong>Imágenes de Referencia:</strong>
+        <div class="row g-2 mt-2">
+          {% if pedido.foto_ref1 %}
+            <div class="col-md-6">
+              <img src="{{ pedido.foto_ref1.url }}" class="img-fluid rounded" alt="Referencia 1">
+            </div>
+          {% endif %}
+          {% if pedido.foto_ref2 %}
+            <div class="col-md-6">
+              <img src="{{ pedido.foto_ref2.url }}" class="img-fluid rounded" alt="Referencia 2">
+            </div>
+          {% endif %}
         </div>
-        {% endif %}
-        {% if pedido.foto_ref2 %}
-        <div class="col-md-6">
-          <img src="{{ pedido.foto_ref2.url }}" class="img-fluid rounded" alt="Referencia 2">
-        </div>
-        {% endif %}
       </div>
-    </div>
     {% endif %}
   </div>
 
