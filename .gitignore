@@ -29,8 +29,8 @@ env/
 .venv
 
 # Database
-db.sqlite3
-db.sqlite3-journal
+# db.sqlite3
+# db.sqlite3-journal
 
 # IDE
 .vscode/
@@ -49,5 +49,5 @@ db.sqlite3-journal
 # !*/migrations/__init__.py
 
 # Media and static files
-/media/
+# /media/
 /staticfiles/

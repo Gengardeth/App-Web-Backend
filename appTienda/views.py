@@ -3,6 +3,8 @@ from .models import Producto, Pedido, Categoria
 from .forms import PedidoForm
 from django.urls import reverse
 from django.db.models import Q
+from django.contrib import messages
+
 
 def catalogo(request):
     q = request.GET.get('q', '').strip()
@@ -29,12 +31,26 @@ def catalogo(request):
         'dest': dest,
     })
 
+
+def buscar_token(request):
+    """Recibe un token (GET) y redirige a la vista pública de seguimiento."""
+    token = request.GET.get('token', '').strip()
+
+    if not token:
+        messages.error(request, 'Ingresa un token para buscar tu pedido.')
+        return redirect('catalogo')
+
+    return redirect('seguimiento_pedido', token=token)
+
+
 def detalle_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     return render(request, 'appTienda/detalle_producto.html', {'producto': producto})
 
+
 def pedir_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
+
     if request.method == 'POST':
         form = PedidoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -47,7 +63,9 @@ def pedir_producto(request, producto_id):
             return redirect('seguimiento_pedido', token=p.token_seguimiento)
     else:
         form = PedidoForm()
+
     return render(request, 'appTienda/pedido_form.html', {'form': form, 'producto': producto})
+
 
 def seguimiento_pedido(request, token):
     pedido = Pedido.objects.filter(token_seguimiento=token).first()
