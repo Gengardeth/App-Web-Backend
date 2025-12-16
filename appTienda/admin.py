@@ -16,11 +16,24 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "categoria", "precio_base", "es_destacado")
+    list_display = ("miniatura", "nombre", "categoria", "precio_base", "es_destacado")
     list_filter = ("categoria", "es_destacado")
     search_fields = ("nombre", "categoria__nombre")
     ordering = ("categoria", "nombre")
     list_per_page = 20
+    save_on_top = True
+    save_as = True
+
+    def miniatura(self, obj):
+        img = obj.imagen1 or obj.imagen2 or obj.imagen3
+        if img and hasattr(img, "url"):
+            return format_html(
+                '<img src="{}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;" />',
+                img.url,
+            )
+        return "—"
+    miniatura.short_description = "Img"
+
 
 
 @admin.register(Insumo)
@@ -55,10 +68,6 @@ class AtrasadosFilter(admin.SimpleListFilter):
             )
 
         if self.value() == "0":
-            # "No atrasados" incluye:
-            # - fecha >= hoy
-            # - o estado cerrado
-            # - o fecha nula (sin fecha solicitada)
             return queryset.filter(
                 Q(fecha_solicitada__gte=hoy) |
                 Q(estado_pedido__in=estados_cerrados) |
@@ -70,7 +79,6 @@ class AtrasadosFilter(admin.SimpleListFilter):
 
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
-    # badges en vez de texto plano
     list_display = (
         "nombre_cliente",
         "contacto",
@@ -89,11 +97,11 @@ class PedidoAdmin(admin.ModelAdmin):
     readonly_fields = ("token_seguimiento",)
     ordering = ("-fecha_solicitada",)
     list_per_page = 20
-
+    save_on_top = True
+    save_as = True
     
     actions = ("marcar_pagado", "pasar_a_proceso", "marcar_finalizada_si_pagado")
 
-    # (ETIQUETAS DE COLOR)
     def estado_badge(self, obj):
         colores = {
             "solicitado": "#6c757d",
