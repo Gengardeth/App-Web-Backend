@@ -1,0 +1,29 @@
+# Evidencia de Reporte Dinámico - TI2041_ES4_Tienda_API_Deploy_v3
+
+## 1. Vista protegida de reporte
+- Ruta: `/reporte/` (requiere login)
+- Permite filtrar por fecha y estado
+
+## 2. Tabla de pedidos
+
+![Captura de tabla de pedidos](Pega_aquí_tu_captura_tabla.png)
+
+## 3. Gráfico de pedidos por estado
+
+![Captura de gráfico de pedidos](Pega_aquí_tu_captura_grafico.png)
+
+## 4. Filtros aplicados
+- Ejemplo: Fecha inicio: 2025-01-01, Fecha fin: 2025-12-31, Estado: aprobado
+
+---
+
+**Instrucciones:**
+1. Ingresa a la vista `/reporte/` con un usuario autenticado.
+2. Aplica los filtros que desees.
+3. Toma capturas de pantalla de la tabla y del gráfico.
+4. Pega las capturas en este documento (puedes usar Word, Google Docs o cualquier editor compatible).
+5. Exporta este documento como PDF y adjúntalo a tu entrega.
+
+---
+
+_Este documento sirve como plantilla para evidenciar el cumplimiento del requerimiento de reporte dinámico con tabla y gráfico._

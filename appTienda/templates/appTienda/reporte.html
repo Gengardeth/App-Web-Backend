@@ -1,0 +1,76 @@
+{% extends 'appTienda/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Reporte de Pedidos</h2>
+<form method="get">
+    <label>Fecha inicio: <input type="date" name="fecha_inicio" value="{{ request.GET.fecha_inicio }}"></label>
+    <label>Fecha fin: <input type="date" name="fecha_fin" value="{{ request.GET.fecha_fin }}"></label>
+    <label>Estado:
+        <select name="estado">
+            <option value="">Todos</option>
+            {% for key, val in estados %}
+            <option value="{{ key }}" {% if request.GET.estado == key %}selected{% endif %}>{{ val }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <button type="submit">Filtrar</button>
+</form>
+<hr>
+<h3>Tabla de Pedidos</h3>
+<table border="1">
+    <tr>
+        <th>ID</th><th>Cliente</th><th>Estado</th><th>Fecha</th><th>Plataforma</th>
+    </tr>
+    {% for p in pedidos %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre_cliente }}</td>
+        <td>{{ p.get_estado_pedido_display }}</td>
+        <td>{{ p.fecha_solicitada }}</td>
+        <td>{{ p.get_plataforma_display }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<hr>
+<h3>Pedidos por Estado</h3>
+<canvas id="graficoEstados" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('graficoEstados').getContext('2d');
+    const data = {
+        labels: {{ grafico_labels|safe }},
+        datasets: [{
+            label: 'Cantidad de pedidos',
+            data: {{ grafico_data|safe }},
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(201, 203, 207, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+    new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+{% endblock %}

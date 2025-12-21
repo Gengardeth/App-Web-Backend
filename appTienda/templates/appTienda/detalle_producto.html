@@ -1,0 +1,78 @@
+{% extends "appTienda/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row g-4">
+
+    <div class="col-12 col-lg-6">
+      {% if producto.imagen1 %}
+        <img src="{{ producto.imagen1.url }}" class="w-100 rounded" style="height:380px;object-fit:cover;">
+      {% elif producto.imagen2 %}
+        <img src="{{ producto.imagen2.url }}" class="w-100 rounded" style="height:380px;object-fit:cover;">
+      {% elif producto.imagen3 %}
+        <img src="{{ producto.imagen3.url }}" class="w-100 rounded" style="height:380px;object-fit:cover;">
+      {% else %}
+        <div class="bg-light d-flex align-items-center justify-content-center rounded" style="height:380px;">
+          No disponible
+        </div>
+      {% endif %}
+      {% if producto.imagen1 or producto.imagen2 or producto.imagen3 %}
+        <div class="row g-2 mt-2">
+          {% if producto.imagen1 %}
+            <div class="col-4">
+              <a href="{{ producto.imagen1.url }}" target="_blank" rel="noopener">
+                <img src="{{ producto.imagen1.url }}" class="w-100 rounded" style="height:110px;object-fit:cover;">
+              </a>
+            </div>
+          {% endif %}
+
+          {% if producto.imagen2 %}
+            <div class="col-4">
+              <a href="{{ producto.imagen2.url }}" target="_blank" rel="noopener">
+                <img src="{{ producto.imagen2.url }}" class="w-100 rounded" style="height:110px;object-fit:cover;">
+              </a>
+            </div>
+          {% endif %}
+
+          {% if producto.imagen3 %}
+            <div class="col-4">
+              <a href="{{ producto.imagen3.url }}" target="_blank" rel="noopener">
+                <img src="{{ producto.imagen3.url }}" class="w-100 rounded" style="height:110px;object-fit:cover;">
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h2 class="mb-2">{{ producto.nombre }}</h2>
+
+      {% if producto.categoria %}
+        <p class="text-muted mb-2">Categoría: {{ producto.categoria }}</p>
+      {% endif %}
+
+      <h4 class="mb-3">$ {{ producto.precio_base }}</h4>
+
+      {% if producto.descripcion %}
+        <p class="mb-4">{{ producto.descripcion }}</p>
+      {% endif %}
+
+      <div class="d-flex gap-2">
+        <a class="btn btn-primary" href="{% url 'pedir_producto' producto.id %}">
+          Pedir / Solicitar
+        </a>
+        <a class="btn btn-outline-secondary" href="{% url 'catalogo' %}">
+          Volver al catálogo
+        </a>
+      </div>
+
+      {% if producto.es_destacado %}
+        <span class="badge text-bg-warning mt-3">Producto destacado</span>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
