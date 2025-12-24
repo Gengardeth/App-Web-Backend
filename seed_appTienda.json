@@ -1,0 +1,706 @@
+[
+{
+  "model": "appTienda.categoria",
+  "pk": 2,
+  "fields": {
+    "nombre": "Neón & Decor",
+    "detalle": "letreros y objetos decorativos hechos con tubos de neón (tradicional o LED) que se utilizan para ambientar espacios como hogares, negocios o eventos, aportando un estilo retro, moderno y llamativo, diseñados a medida para crear ambientes únicos"
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Stickers & Vinyl Lab",
+    "detalle": "Stickers: Son calcomanías pequeñas, a menudo troqueladas a formas específicas, hechas de una película de vinilo duradera.\r\nVinilo: Un material versátil que permite crear desde etiquetas pequeñas hasta grandes gráficos para paredes o vehículos.\r\nLab (Laboratorio): Implica un proceso profesional de diseño y producción, con opciones de acabado como laminado UV para proteger contra el sol y tintas ecológicas."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 4,
+  "fields": {
+    "nombre": "Streetwear Nocturno",
+    "detalle": "Caracterizado por fusionar comodidad urbana y estilo con prendas versátiles como sudaderas, hoodies, zapatillas icónicas, pantalones anchos (cargo, anchos) y gorras, adaptando sus elementos gráficos, texturas (cuero, texturas) y paletas de colores (neutros o vibrantes) para ambientes más oscuros o de fiesta, mezclando lo deportivo con toques de lujo y alta costura para crear looks funcionales y con actitud, ideal para salir sin perder la esencia rebelde y personal de la moda callejera."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 5,
+  "fields": {
+    "nombre": "Accesorios de Bolsillo",
+    "detalle": "Objetos pequeños y portátiles que se llevan en los bolsillos de la ropa o en una riñonera."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 6,
+  "fields": {
+    "nombre": "Techwear & Cables",
+    "detalle": "Techwear es un estilo de moda urbana que fusiona diseño futurista con funcionalidad extrema, usando materiales de alta tecnología (impermeables, transpirables, resistentes) y características utilitarias como bolsillos modulares y cierres impermeables para mejorar la comodidad y practicidad en la vida diaria, inspirándose en ropa militar y de actividades al aire libre\r\n. Los \"cables\" (cintas, correas, cordones) son un elemento estético y funcional clave, añadiendo un look \"cyberpunk\" y permitiendo ajustes o transporte de equipo."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 7,
+  "fields": {
+    "nombre": "Coleccionables",
+    "detalle": "figuras, de objetos de cultura."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 8,
+  "fields": {
+    "nombre": "Ediciones Limitadas",
+    "detalle": "Producto o artículo que se produce y vende en una cantidad finita y predeterminada, mucho menor que una producción regular, creando escasez, exclusividad y urgencia para el comprador, y una vez agotado, no se repondrá."
+  }
+},
+{
+  "model": "appTienda.categoria",
+  "pk": 9,
+  "fields": {
+    "nombre": "Regalos Personalizados",
+    "detalle": "Es un artículo hecho a medida, no uno que se compra en masa, lo que lo hace único para esa persona."
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Letrero LED “OPEN LATE”",
+    "descripcion": "Letrero para escritorio/pieza",
+    "categoria": 2,
+    "precio_base": "18990.00",
+    "imagen1": "productos/1.jpeg",
+    "imagen2": "productos/open-late-neon-sign-1xmnk2412144.webp",
+    "imagen3": "productos/Open-Late-Neon-Sign-3.webp",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Cuadro Acrílico “Glitch City”",
+    "descripcion": "Acrílico impreso con acabado brillo",
+    "categoria": 2,
+    "precio_base": "14990.00",
+    "imagen1": "productos/desktop-wallpaper-bomb998998-pixel-art-pixel-art-background-pixel-city-cyberpu_0GrrqRh.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Poster “Mapa de Metro Fantasma”",
+    "descripcion": "Arte urbano edición A2",
+    "categoria": 2,
+    "precio_base": "9990.00",
+    "imagen1": "productos/2.jpeg",
+    "imagen2": "productos/2014-03-03-9015LOI6102.jpg",
+    "imagen3": "productos/articles-664130_thumbnail.jpg",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Sticker Pack",
+    "descripcion": "Diseños random + 2 holográficos",
+    "categoria": 3,
+    "precio_base": "4900.00",
+    "imagen1": "productos/MOCKUPSTICKERS_CLASSIC_1200x1200_1a184e02-73b4-41f9-9c4e-9bcf7e4e29f5.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Vinilo “Nombre en Neón”",
+    "descripcion": "Sticker personalizado para notebook.",
+    "categoria": 3,
+    "precio_base": "3900.00",
+    "imagen1": "productos/81zLSu93ZZL._AC_SL1000_.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Etiqueta “QR Social”",
+    "descripcion": "QR a IG/portafolio, resistente agua",
+    "categoria": 3,
+    "precio_base": "2990.00",
+    "imagen1": "productos/Etiquetas-Adhesivos-o-Stickers-codigo-QR-7.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 8,
+  "fields": {
+    "nombre": "Polera “Night Shift”",
+    "descripcion": "Tipografía glitch + tag personalizable",
+    "categoria": 4,
+    "precio_base": "15990.00",
+    "imagen1": "productos/B1pppR4gVKL._CLa_21402000_81-MhRFoSTL.png_00214020000.00.02140.02000.0_AC_UY1000_.jpeg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Polerón “Back Alley”",
+    "descripcion": "Diseño espalda completa",
+    "categoria": 4,
+    "precio_base": "29990.00",
+    "imagen1": "productos/herrhe.jpeg",
+    "imagen2": "productos/ehrhre.jpeg",
+    "imagen3": "productos/fefe_Pn5lTEI.jpeg",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Gorro Beanie “Minimal Tag”",
+    "descripcion": "Inicial + año",
+    "categoria": 4,
+    "precio_base": "11990.00",
+    "imagen1": "productos/71vWg3itkmL._AC_SL1000_.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 11,
+  "fields": {
+    "nombre": "Llavero Acrílico “Neon Charm”",
+    "descripcion": "Forma custom (logo / inicial)",
+    "categoria": 5,
+    "precio_base": "3490.00",
+    "imagen1": "productos/llavero-igris-solo-leveling-.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 12,
+  "fields": {
+    "nombre": "Tarjetero “Blackout”",
+    "descripcion": "Porta tarjetas estilo urbano",
+    "categoria": 5,
+    "precio_base": "6990.00",
+    "imagen1": "productos/61cuiamo9VL._AC_UY1000_.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 13,
+  "fields": {
+    "nombre": "Cadena / Correa “Street Clip”",
+    "descripcion": "Para llaves/bolso (merch)",
+    "categoria": 5,
+    "precio_base": "7990.00",
+    "imagen1": "productos/71HlY-hXXnL._AC_UF8941000_QL80_.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 14,
+  "fields": {
+    "nombre": "Cable Organizer “Clipset”",
+    "descripcion": "Pack 6 clips para cables",
+    "categoria": 6,
+    "precio_base": "4990.00",
+    "imagen1": "productos/550x533.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 15,
+  "fields": {
+    "nombre": "Soporte de Celular “Dock”",
+    "descripcion": "Impresión 3D para escritorio",
+    "categoria": 6,
+    "precio_base": "5990.00",
+    "imagen1": "productos/SOPORTE_TELEFONO_v1_2025-Jul-21_09-23-55PM-000_CustomizedView18174664457.png",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 16,
+  "fields": {
+    "nombre": "Mousepad XL “Neon Grid”",
+    "descripcion": "Estilo synthwave",
+    "categoria": 6,
+    "precio_base": "15990.00",
+    "imagen1": "productos/fwewfe.jpeg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 17,
+  "fields": {
+    "nombre": "Figura 3D “Mascota Glitch”",
+    "descripcion": "Mini figura random (coleccionable)",
+    "categoria": 8,
+    "precio_base": "6990.00",
+    "imagen1": "productos/71McmZOdfbL.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": false
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 18,
+  "fields": {
+    "nombre": "Pin metálico “Underground Badge”",
+    "descripcion": "Insignia edición limitada",
+    "categoria": 7,
+    "precio_base": "4990.00",
+    "imagen1": "productos/ltm_image_1500x1500px_v3.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.producto",
+  "pk": 19,
+  "fields": {
+    "nombre": "Caja Mystery “After Hours”",
+    "descripcion": "1 sticker pack + 1 pin + 1 llavero",
+    "categoria": 7,
+    "precio_base": "12990.00",
+    "imagen1": "productos/61wINfgkxiL._AC_UL600_SR600600_.jpg",
+    "imagen2": "",
+    "imagen3": "",
+    "es_destacado": true
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 1,
+  "fields": {
+    "nombre": "Acrílico transparente 3mm (60x40)",
+    "tipo": "Neón & Decor",
+    "cantDisponible": 20,
+    "unidad": "lámina",
+    "marca": "NeonLab",
+    "color": "transparente"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 2,
+  "fields": {
+    "nombre": "Vinilo adhesivo negro mate",
+    "tipo": "Neón & Decor",
+    "cantDisponible": 30,
+    "unidad": "m",
+    "marca": "NeonLab",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 3,
+  "fields": {
+    "nombre": "Kit LED 5V",
+    "tipo": "Neón & Decor",
+    "cantDisponible": 12,
+    "unidad": "u",
+    "marca": "GlowKit",
+    "color": null
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 4,
+  "fields": {
+    "nombre": "Papel fotográfico A2 200g",
+    "tipo": "Neón & Decor",
+    "cantDisponible": 80,
+    "unidad": "hoja",
+    "marca": "ProPrint",
+    "color": null
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 5,
+  "fields": {
+    "nombre": "Tinta/Toner negro",
+    "tipo": "Neón & Deco",
+    "cantDisponible": 3,
+    "unidad": "u",
+    "marca": "ProPrint",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 6,
+  "fields": {
+    "nombre": "Vinilo adhesivo blanco",
+    "tipo": "Stickers & Vinyl",
+    "cantDisponible": 25,
+    "unidad": "m",
+    "marca": "VinylWorks",
+    "color": "blanco"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 7,
+  "fields": {
+    "nombre": "Vinilo holográfico adhesivo",
+    "tipo": "Stickers & Viny",
+    "cantDisponible": 40,
+    "unidad": "pliego",
+    "marca": "VinylWorks",
+    "color": "holo"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 8,
+  "fields": {
+    "nombre": "Laminado protector transparente",
+    "tipo": "Stickers & Vinyl",
+    "cantDisponible": 20,
+    "unidad": "m",
+    "marca": "VinylWorks",
+    "color": "transparente"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 9,
+  "fields": {
+    "nombre": "Papel adhesivo A4",
+    "tipo": "Stickers & Vinyl",
+    "cantDisponible": 200,
+    "unidad": "hoja",
+    "marca": "ProPrint",
+    "color": null
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 10,
+  "fields": {
+    "nombre": "Polera algodón base (negra)",
+    "tipo": "Streetwear Nocturno",
+    "cantDisponible": 40,
+    "unidad": "u",
+    "marca": "BasicWear",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 11,
+  "fields": {
+    "nombre": "Polerón base (negro)",
+    "tipo": "Streetwear Nocturno",
+    "cantDisponible": 20,
+    "unidad": "u",
+    "marca": "BasicWear",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 12,
+  "fields": {
+    "nombre": "Beanie base (negro)",
+    "tipo": "Streetwear Nocturno",
+    "cantDisponible": 30,
+    "unidad": "u",
+    "marca": "BasicWear",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 13,
+  "fields": {
+    "nombre": "Vinilo textil HTV",
+    "tipo": "Streetwear Nocturno",
+    "cantDisponible": 18,
+    "unidad": "m",
+    "marca": "PressLab",
+    "color": "blanco"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 14,
+  "fields": {
+    "nombre": "Base mousepad XL (80x30) neopreno",
+    "tipo": "Techwear & Cables",
+    "cantDisponible": 25,
+    "unidad": "u",
+    "marca": "DeskLab",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 15,
+  "fields": {
+    "nombre": "Argollas/hebillas plásticas",
+    "tipo": "Techwear & Cables",
+    "cantDisponible": 200,
+    "unidad": "u",
+    "marca": "ClipCo",
+    "color": null
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 16,
+  "fields": {
+    "nombre": "Pines metálicos",
+    "tipo": "Coleccionables",
+    "cantDisponible": 60,
+    "unidad": "u",
+    "marca": "PinForge",
+    "color": "metálico"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 17,
+  "fields": {
+    "nombre": "Cajas pequeñas negras",
+    "tipo": "Packaging",
+    "cantDisponible": 80,
+    "unidad": "u",
+    "marca": "PackLab",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 18,
+  "fields": {
+    "nombre": "Filamento PLA negro 1.75mm",
+    "tipo": "Impresión 3D",
+    "cantDisponible": 6,
+    "unidad": "kg",
+    "marca": "Print3D",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 19,
+  "fields": {
+    "nombre": "Filamento PLA neón (verde/azul)",
+    "tipo": "Impresión 3D",
+    "cantDisponible": 3,
+    "unidad": "kg",
+    "marca": "Print3D",
+    "color": "neón"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 20,
+  "fields": {
+    "nombre": "Bolsas zip negras + sticker sello",
+    "tipo": "Packaging",
+    "cantDisponible": 150,
+    "unidad": "u",
+    "marca": "PackLab",
+    "color": "negro"
+  }
+},
+{
+  "model": "appTienda.insumo",
+  "pk": 21,
+  "fields": {
+    "nombre": "Argollas metálicas para llavero",
+    "tipo": "Accesorios",
+    "cantDisponible": 300,
+    "unidad": "u",
+    "marca": "MetalLoop",
+    "color": "metálico"
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 5,
+  "fields": {
+    "nombre_cliente": "Cliente 1",
+    "contacto": "+56912345678",
+    "producto_referencia": 3,
+    "descripcion": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-15",
+    "estado_pedido": "finalizada",
+    "estado_pago": "pagado",
+    "token_seguimiento": "a0b08c6bca",
+    "foto_ref1": "pedidos/gf_V6PfpKa.jpg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 6,
+  "fields": {
+    "nombre_cliente": "Cliente 2",
+    "contacto": "+5691234578",
+    "producto_referencia": 5,
+    "descripcion": "Todos negros y de skate.",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-17",
+    "estado_pedido": "finalizada",
+    "estado_pago": "pagado",
+    "token_seguimiento": "ed133d1faa",
+    "foto_ref1": "pedidos/MOCKUPSTICKERS_CLASSIC_1200x1200_1a184e02-73b4-41f9-9c4e-9bcf7e4e29f5.jpg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 7,
+  "fields": {
+    "nombre_cliente": "Cliente 3",
+    "contacto": "+56912345786",
+    "producto_referencia": 12,
+    "descripcion": "Targeta de tamaño estandar discreto.",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-15",
+    "estado_pedido": "solicitado",
+    "estado_pago": "pendiente",
+    "token_seguimiento": "7773964020",
+    "foto_ref1": "",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 8,
+  "fields": {
+    "nombre_cliente": "Cliente 4",
+    "contacto": "+56912345678",
+    "producto_referencia": 8,
+    "descripcion": "Necesito 3 poleras xs y una m.",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-19",
+    "estado_pedido": "proceso",
+    "estado_pago": "pagado",
+    "token_seguimiento": "f7fd64ee39",
+    "foto_ref1": "pedidos/B1pppR4gVKL._CLa_21402000_81-MhRFoSTL.png_00214020000.00.02140.02000.0_AC_UY1000_.jpeg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 9,
+  "fields": {
+    "nombre_cliente": "Cliente 5",
+    "contacto": "+56912345786",
+    "producto_referencia": 16,
+    "descripcion": "Necesito uno negro y otro verde.",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-30",
+    "estado_pedido": "proceso",
+    "estado_pago": "pendiente",
+    "token_seguimiento": "ba84523914",
+    "foto_ref1": "pedidos/fwewfe.jpeg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 10,
+  "fields": {
+    "nombre_cliente": "cliente 22",
+    "contacto": "+56912345786",
+    "producto_referencia": 2,
+    "descripcion": "frefreferferferf",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-17",
+    "estado_pedido": "finalizada",
+    "estado_pago": "pagado",
+    "token_seguimiento": "595016abab",
+    "foto_ref1": "pedidos/1.jpeg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 11,
+  "fields": {
+    "nombre_cliente": "fwerwefwe",
+    "contacto": "+56912345786",
+    "producto_referencia": 2,
+    "descripcion": "fewfwefwefwe",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-18",
+    "estado_pedido": "finalizada",
+    "estado_pago": "pagado",
+    "token_seguimiento": "a01269da97",
+    "foto_ref1": "pedidos/1_GHJSYB0.jpeg",
+    "foto_ref2": ""
+  }
+},
+{
+  "model": "appTienda.pedido",
+  "pk": 12,
+  "fields": {
+    "nombre_cliente": "f2f23f23",
+    "contacto": "+56912345678",
+    "producto_referencia": 2,
+    "descripcion": "gergegerfrefwefwefwe",
+    "plataforma": "web",
+    "fecha_solicitada": "2025-12-23",
+    "estado_pedido": "solicitado",
+    "estado_pago": "pendiente",
+    "token_seguimiento": "bdae1df755",
+    "foto_ref1": "pedidos/61cuiamo9VL._AC_UY1000_.jpg",
+    "foto_ref2": ""
+  }
+}
+]
