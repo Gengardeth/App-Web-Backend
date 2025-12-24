@@ -42,7 +42,7 @@ from django.db.models import Q as Q_drf
 class InsumoViewSet(viewsets.ModelViewSet):
     queryset = Insumo.objects.all()
     serializer_class = InsumoSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 # API Crear/Modificar Pedidos (sin listar ni eliminar)
 class PedidoViewSet(viewsets.ModelViewSet):
@@ -51,10 +51,10 @@ class PedidoViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
     def list(self, request, *args, **kwargs):
-        return Response({'detail': 'Listar pedidos no permitido.'}, status=status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'Listar pedidos no permitido.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def destroy(self, request, *args, **kwargs):
-        return Response({'detail': 'Eliminar pedidos no permitido.'}, status=status.HTTP_403_FORBIDDEN)
+        return Response({'detail': 'Eliminar pedidos no permitido.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 # API Filtro de pedidos por parámetros
 class PedidoFiltrarAPIView(APIView):
