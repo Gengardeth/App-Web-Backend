@@ -3,8 +3,8 @@
   "model": "appTienda.categoria",
   "pk": 2,
   "fields": {
-    "nombre": "Ne�n & Decor",
-    "detalle": "letreros y objetos decorativos hechos con tubos de ne�n (tradicional o LED) que se utilizan para ambientar espacios como hogares, negocios o eventos, aportando un estilo retro, moderno y llamativo, dise�ados a medida para crear ambientes �nicos"
+    "nombre": "NeNn & Decor",
+    "detalle": "letreros y objetos decorativos hechos con tubos de neNn (tradicional o LED) que se utilizan para ambientar espacios como hogares, negocios o eventos, aportando un estilo retro, moderno y llamativo, diseNados a medida para crear ambientes Nnicos"
   }
 },
 {
@@ -12,7 +12,7 @@
   "pk": 3,
   "fields": {
     "nombre": "Stickers & Vinyl Lab",
-    "detalle": "Stickers: Son calcoman�as peque�as, a menudo troqueladas a formas espec�ficas, hechas de una pel�cula de vinilo duradera.\r\nVinilo: Un material vers�til que permite crear desde etiquetas peque�as hasta grandes gr�ficos para paredes o veh�culos.\r\nLab (Laboratorio): Implica un proceso profesional de dise�o y producci�n, con opciones de acabado como laminado UV para proteger contra el sol y tintas ecol�gicas."
+    "detalle": "Stickers: Son calcomanNas pequeNas, a menudo troqueladas a formas especNficas, hechas de una pelNcula de vinilo duradera.\r\nVinilo: Un material versNtil que permite crear desde etiquetas pequeNas hasta grandes grNficos para paredes o vehNculos.\r\nLab (Laboratorio): Implica un proceso profesional de diseNo y producciNn, con opciones de acabado como laminado UV para proteger contra el sol y tintas ecolNgicas."
   }
 },
 {
@@ -20,7 +20,7 @@
   "pk": 4,
   "fields": {
     "nombre": "Streetwear Nocturno",
-    "detalle": "Caracterizado por fusionar comodidad urbana y estilo con prendas vers�tiles como sudaderas, hoodies, zapatillas ic�nicas, pantalones anchos (cargo, anchos) y gorras, adaptando sus elementos gr�ficos, texturas (cuero, texturas) y paletas de colores (neutros o vibrantes) para ambientes m�s oscuros o de fiesta, mezclando lo deportivo con toques de lujo y alta costura para crear looks funcionales y con actitud, ideal para salir sin perder la esencia rebelde y personal de la moda callejera."
+    "detalle": "Caracterizado por fusionar comodidad urbana y estilo con prendas versNtiles como sudaderas, hoodies, zapatillas icNnicas, pantalones anchos (cargo, anchos) y gorras, adaptando sus elementos grNficos, texturas (cuero, texturas) y paletas de colores (neutros o vibrantes) para ambientes mNs oscuros o de fiesta, mezclando lo deportivo con toques de lujo y alta costura para crear looks funcionales y con actitud, ideal para salir sin perder la esencia rebelde y personal de la moda callejera."
   }
 },
 {
@@ -28,7 +28,7 @@
   "pk": 5,
   "fields": {
     "nombre": "Accesorios de Bolsillo",
-    "detalle": "Objetos peque�os y port�tiles que se llevan en los bolsillos de la ropa o en una ri�onera."
+    "detalle": "Objetos pequeNos y portNtiles que se llevan en los bolsillos de la ropa o en una riNonera."
   }
 },
 {
@@ -36,7 +36,7 @@
   "pk": 6,
   "fields": {
     "nombre": "Techwear & Cables",
-    "detalle": "Techwear es un estilo de moda urbana que fusiona dise�o futurista con funcionalidad extrema, usando materiales de alta tecnolog�a (impermeables, transpirables, resistentes) y caracter�sticas utilitarias como bolsillos modulares y cierres impermeables para mejorar la comodidad y practicidad en la vida diaria, inspir�ndose en ropa militar y de actividades al aire libre\r\n. Los \"cables\" (cintas, correas, cordones) son un elemento est�tico y funcional clave, a�adiendo un look \"cyberpunk\" y permitiendo ajustes o transporte de equipo."
+    "detalle": "Techwear es un estilo de moda urbana que fusiona diseNo futurista con funcionalidad extrema, usando materiales de alta tecnologNa (impermeables, transpirables, resistentes) y caracterNsticas utilitarias como bolsillos modulares y cierres impermeables para mejorar la comodidad y practicidad en la vida diaria, inspirNndose en ropa militar y de actividades al aire libre\r\n. Los \"cables\" (cintas, correas, cordones) son un elemento estNtico y funcional clave, aNadiendo un look \"cyberpunk\" y permitiendo ajustes o transporte de equipo."
   }
 },
 {
@@ -52,7 +52,7 @@
   "pk": 8,
   "fields": {
     "nombre": "Ediciones Limitadas",
-    "detalle": "Producto o art�culo que se produce y vende en una cantidad finita y predeterminada, mucho menor que una producci�n regular, creando escasez, exclusividad y urgencia para el comprador, y una vez agotado, no se repondr�."
+    "detalle": "Producto o artNculo que se produce y vende en una cantidad finita y predeterminada, mucho menor que una producciNn regular, creando escasez, exclusividad y urgencia para el comprador, y una vez agotado, no se repondrN."
   }
 },
 {
@@ -60,14 +60,14 @@
   "pk": 9,
   "fields": {
     "nombre": "Regalos Personalizados",
-    "detalle": "Es un art�culo hecho a medida, no uno que se compra en masa, lo que lo hace �nico para esa persona."
+    "detalle": "Es un artNculo hecho a medida, no uno que se compra en masa, lo que lo hace Nnico para esa persona."
   }
 },
 {
   "model": "appTienda.producto",
   "pk": 2,
   "fields": {
-    "nombre": "Letrero LED �OPEN LATE�",
+    "nombre": "Letrero LED NOPEN LATEN",
     "descripcion": "Letrero para escritorio/pieza",
     "categoria": 2,
     "precio_base": "18990.00",
@@ -81,8 +81,8 @@
   "model": "appTienda.producto",
   "pk": 3,
   "fields": {
-    "nombre": "Cuadro Acr�lico �Glitch City�",
-    "descripcion": "Acr�lico impreso con acabado brillo",
+    "nombre": "Cuadro AcrNlico NGlitch CityN",
+    "descripcion": "AcrNlico impreso con acabado brillo",
     "categoria": 2,
     "precio_base": "14990.00",
     "imagen1": "productos/desktop-wallpaper-bomb998998-pixel-art-pixel-art-background-pixel-city-cyberpu_0GrrqRh.jpg",
@@ -95,8 +95,8 @@
   "model": "appTienda.producto",
   "pk": 4,
   "fields": {
-    "nombre": "Poster �Mapa de Metro Fantasma�",
-    "descripcion": "Arte urbano edici�n A2",
+    "nombre": "Poster NMapa de Metro FantasmaN",
+    "descripcion": "Arte urbano ediciNn A2",
     "categoria": 2,
     "precio_base": "9990.00",
     "imagen1": "productos/2.jpeg",
@@ -110,7 +110,7 @@
   "pk": 5,
   "fields": {
     "nombre": "Sticker Pack",
-    "descripcion": "Dise�os random + 2 hologr�ficos",
+    "descripcion": "DiseNos random + 2 hologrNficos",
     "categoria": 3,
     "precio_base": "4900.00",
     "imagen1": "productos/MOCKUPSTICKERS_CLASSIC_1200x1200_1a184e02-73b4-41f9-9c4e-9bcf7e4e29f5.jpg",
@@ -123,7 +123,7 @@
   "model": "appTienda.producto",
   "pk": 6,
   "fields": {
-    "nombre": "Vinilo �Nombre en Ne�n�",
+    "nombre": "Vinilo NNombre en NeNnN",
     "descripcion": "Sticker personalizado para notebook.",
     "categoria": 3,
     "precio_base": "3900.00",
@@ -137,7 +137,7 @@
   "model": "appTienda.producto",
   "pk": 7,
   "fields": {
-    "nombre": "Etiqueta �QR Social�",
+    "nombre": "Etiqueta NQR SocialN",
     "descripcion": "QR a IG/portafolio, resistente agua",
     "categoria": 3,
     "precio_base": "2990.00",
@@ -151,8 +151,8 @@
   "model": "appTienda.producto",
   "pk": 8,
   "fields": {
-    "nombre": "Polera �Night Shift�",
-    "descripcion": "Tipograf�a glitch + tag personalizable",
+    "nombre": "Polera NNight ShiftN",
+    "descripcion": "TipografNa glitch + tag personalizable",
     "categoria": 4,
     "precio_base": "15990.00",
     "imagen1": "productos/B1pppR4gVKL._CLa_21402000_81-MhRFoSTL.png_00214020000.00.02140.02000.0_AC_UY1000_.jpeg",
@@ -165,8 +165,8 @@
   "model": "appTienda.producto",
   "pk": 9,
   "fields": {
-    "nombre": "Poler�n �Back Alley�",
-    "descripcion": "Dise�o espalda completa",
+    "nombre": "PolerNn NBack AlleyN",
+    "descripcion": "DiseNo espalda completa",
     "categoria": 4,
     "precio_base": "29990.00",
     "imagen1": "productos/herrhe.jpeg",
@@ -179,8 +179,8 @@
   "model": "appTienda.producto",
   "pk": 10,
   "fields": {
-    "nombre": "Gorro Beanie �Minimal Tag�",
-    "descripcion": "Inicial + a�o",
+    "nombre": "Gorro Beanie NMinimal TagN",
+    "descripcion": "Inicial + aNo",
     "categoria": 4,
     "precio_base": "11990.00",
     "imagen1": "productos/71vWg3itkmL._AC_SL1000_.jpg",
@@ -193,7 +193,7 @@
   "model": "appTienda.producto",
   "pk": 11,
   "fields": {
-    "nombre": "Llavero Acr�lico �Neon Charm�",
+    "nombre": "Llavero AcrNlico NNeon CharmN",
     "descripcion": "Forma custom (logo / inicial)",
     "categoria": 5,
     "precio_base": "3490.00",
@@ -207,7 +207,7 @@
   "model": "appTienda.producto",
   "pk": 12,
   "fields": {
-    "nombre": "Tarjetero �Blackout�",
+    "nombre": "Tarjetero NBlackoutN",
     "descripcion": "Porta tarjetas estilo urbano",
     "categoria": 5,
     "precio_base": "6990.00",
@@ -221,7 +221,7 @@
   "model": "appTienda.producto",
   "pk": 13,
   "fields": {
-    "nombre": "Cadena / Correa �Street Clip�",
+    "nombre": "Cadena / Correa NStreet ClipN",
     "descripcion": "Para llaves/bolso (merch)",
     "categoria": 5,
     "precio_base": "7990.00",
@@ -235,7 +235,7 @@
   "model": "appTienda.producto",
   "pk": 14,
   "fields": {
-    "nombre": "Cable Organizer �Clipset�",
+    "nombre": "Cable Organizer NClipsetN",
     "descripcion": "Pack 6 clips para cables",
     "categoria": 6,
     "precio_base": "4990.00",
@@ -249,8 +249,8 @@
   "model": "appTienda.producto",
   "pk": 15,
   "fields": {
-    "nombre": "Soporte de Celular �Dock�",
-    "descripcion": "Impresi�n 3D para escritorio",
+    "nombre": "Soporte de Celular NDockN",
+    "descripcion": "ImpresiNn 3D para escritorio",
     "categoria": 6,
     "precio_base": "5990.00",
     "imagen1": "productos/SOPORTE_TELEFONO_v1_2025-Jul-21_09-23-55PM-000_CustomizedView18174664457.png",
@@ -263,7 +263,7 @@
   "model": "appTienda.producto",
   "pk": 16,
   "fields": {
-    "nombre": "Mousepad XL �Neon Grid�",
+    "nombre": "Mousepad XL NNeon GridN",
     "descripcion": "Estilo synthwave",
     "categoria": 6,
     "precio_base": "15990.00",
@@ -277,7 +277,7 @@
   "model": "appTienda.producto",
   "pk": 17,
   "fields": {
-    "nombre": "Figura 3D �Mascota Glitch�",
+    "nombre": "Figura 3D NMascota GlitchN",
     "descripcion": "Mini figura random (coleccionable)",
     "categoria": 8,
     "precio_base": "6990.00",
@@ -291,8 +291,8 @@
   "model": "appTienda.producto",
   "pk": 18,
   "fields": {
-    "nombre": "Pin met�lico �Underground Badge�",
-    "descripcion": "Insignia edici�n limitada",
+    "nombre": "Pin metNlico NUnderground BadgeN",
+    "descripcion": "Insignia ediciNn limitada",
     "categoria": 7,
     "precio_base": "4990.00",
     "imagen1": "productos/ltm_image_1500x1500px_v3.jpg",
@@ -305,7 +305,7 @@
   "model": "appTienda.producto",
   "pk": 19,
   "fields": {
-    "nombre": "Caja Mystery �After Hours�",
+    "nombre": "Caja Mystery NAfter HoursN",
     "descripcion": "1 sticker pack + 1 pin + 1 llavero",
     "categoria": 7,
     "precio_base": "12990.00",
@@ -319,10 +319,10 @@
   "model": "appTienda.insumo",
   "pk": 1,
   "fields": {
-    "nombre": "Acr�lico transparente 3mm (60x40)",
-    "tipo": "Ne�n & Decor",
+    "nombre": "AcrNlico transparente 3mm (60x40)",
+    "tipo": "NeNn & Decor",
     "cantDisponible": 20,
-    "unidad": "l�mina",
+    "unidad": "lNmina",
     "marca": "NeonLab",
     "color": "transparente"
   }
@@ -332,7 +332,7 @@
   "pk": 2,
   "fields": {
     "nombre": "Vinilo adhesivo negro mate",
-    "tipo": "Ne�n & Decor",
+    "tipo": "NeNn & Decor",
     "cantDisponible": 30,
     "unidad": "m",
     "marca": "NeonLab",
@@ -344,7 +344,7 @@
   "pk": 3,
   "fields": {
     "nombre": "Kit LED 5V",
-    "tipo": "Ne�n & Decor",
+    "tipo": "NeNn & Decor",
     "cantDisponible": 12,
     "unidad": "u",
     "marca": "GlowKit",
@@ -355,8 +355,8 @@
   "model": "appTienda.insumo",
   "pk": 4,
   "fields": {
-    "nombre": "Papel fotogr�fico A2 200g",
-    "tipo": "Ne�n & Decor",
+    "nombre": "Papel fotogrNfico A2 200g",
+    "tipo": "NeNn & Decor",
     "cantDisponible": 80,
     "unidad": "hoja",
     "marca": "ProPrint",
@@ -368,7 +368,7 @@
   "pk": 5,
   "fields": {
     "nombre": "Tinta/Toner negro",
-    "tipo": "Ne�n & Deco",
+    "tipo": "NeNn & Deco",
     "cantDisponible": 3,
     "unidad": "u",
     "marca": "ProPrint",
@@ -391,7 +391,7 @@
   "model": "appTienda.insumo",
   "pk": 7,
   "fields": {
-    "nombre": "Vinilo hologr�fico adhesivo",
+    "nombre": "Vinilo hologrNfico adhesivo",
     "tipo": "Stickers & Viny",
     "cantDisponible": 40,
     "unidad": "pliego",
@@ -427,7 +427,7 @@
   "model": "appTienda.insumo",
   "pk": 10,
   "fields": {
-    "nombre": "Polera algod�n base (negra)",
+    "nombre": "Polera algodNn base (negra)",
     "tipo": "Streetwear Nocturno",
     "cantDisponible": 40,
     "unidad": "u",
@@ -439,7 +439,7 @@
   "model": "appTienda.insumo",
   "pk": 11,
   "fields": {
-    "nombre": "Poler�n base (negro)",
+    "nombre": "PolerNn base (negro)",
     "tipo": "Streetwear Nocturno",
     "cantDisponible": 20,
     "unidad": "u",
@@ -487,7 +487,7 @@
   "model": "appTienda.insumo",
   "pk": 15,
   "fields": {
-    "nombre": "Argollas/hebillas pl�sticas",
+    "nombre": "Argollas/hebillas plNsticas",
     "tipo": "Techwear & Cables",
     "cantDisponible": 200,
     "unidad": "u",
@@ -499,19 +499,19 @@
   "model": "appTienda.insumo",
   "pk": 16,
   "fields": {
-    "nombre": "Pines met�licos",
+    "nombre": "Pines metNlicos",
     "tipo": "Coleccionables",
     "cantDisponible": 60,
     "unidad": "u",
     "marca": "PinForge",
-    "color": "met�lico"
+    "color": "metNlico"
   }
 },
 {
   "model": "appTienda.insumo",
   "pk": 17,
   "fields": {
-    "nombre": "Cajas peque�as negras",
+    "nombre": "Cajas pequeNas negras",
     "tipo": "Packaging",
     "cantDisponible": 80,
     "unidad": "u",
@@ -524,7 +524,7 @@
   "pk": 18,
   "fields": {
     "nombre": "Filamento PLA negro 1.75mm",
-    "tipo": "Impresi�n 3D",
+    "tipo": "ImpresiNn 3D",
     "cantDisponible": 6,
     "unidad": "kg",
     "marca": "Print3D",
@@ -535,12 +535,12 @@
   "model": "appTienda.insumo",
   "pk": 19,
   "fields": {
-    "nombre": "Filamento PLA ne�n (verde/azul)",
-    "tipo": "Impresi�n 3D",
+    "nombre": "Filamento PLA neNn (verde/azul)",
+    "tipo": "ImpresiNn 3D",
     "cantDisponible": 3,
     "unidad": "kg",
     "marca": "Print3D",
-    "color": "ne�n"
+    "color": "neNn"
   }
 },
 {
@@ -559,12 +559,12 @@
   "model": "appTienda.insumo",
   "pk": 21,
   "fields": {
-    "nombre": "Argollas met�licas para llavero",
+    "nombre": "Argollas metNlicas para llavero",
     "tipo": "Accesorios",
     "cantDisponible": 300,
     "unidad": "u",
     "marca": "MetalLoop",
-    "color": "met�lico"
+    "color": "metNlico"
   }
 },
 {
@@ -608,7 +608,7 @@
     "nombre_cliente": "Cliente 3",
     "contacto": "+56912345786",
     "producto_referencia": 12,
-    "descripcion": "Targeta de tama�o estandar discreto.",
+    "descripcion": "Targeta de tamaNo estandar discreto.",
     "plataforma": "web",
     "fecha_solicitada": "2025-12-15",
     "estado_pedido": "solicitado",
